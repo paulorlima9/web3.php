@@ -17,13 +17,13 @@ Set minimum stability to dev
 
 Then
 ```
-composer require sc0vu/web3.php dev-master
+composer require paulorlima9/web3.php dev-master
 ```
 
 Or you can add this line in composer.json
 
 ```
-"sc0vu/web3.php": "dev-master"
+"paulorlima9/web3.php": "dev-master"
 ```
 
 
@@ -204,12 +204,6 @@ $web3->personal->newAccount('123456', function ($err, $account) use (&$newAccoun
 });
 ```
 
-# Examples
-
-To run examples, you need to run ethereum blockchain local (testrpc).
-
-If you are using docker as development machain, you can try [ethdock](https://github.com/sc0vu/ethdock) to run local ethereum blockchain, just simply run `docker-compose up -d testrpc` and expose the `8545` port.
-
 # Develop
 
 ### Local php cli installed
@@ -224,24 +218,8 @@ git clone https://github.com/sc0Vu/web3.php.git && cd web3.php && composer insta
 vendor/bin/phpunit
 ```
 
-### Docker container
 
-1. Clone the repo and run docker container.
-```
-git clone https://github.com/sc0Vu/web3.php.git
-```
-
-2. Copy web3.php to web3.php/docker/app directory and start container.
-```
-cp files docker/app && docker-compose up -d php ganache
-```
-
-3. Enter php container and install packages.
-```
-docker-compose exec php ash
-```
-
-4. Change testHost in `TestCase.php`
+1. Change testHost in `TestCase.php`
 ```
 /**
  * testHost
@@ -251,26 +229,9 @@ docker-compose exec php ash
 protected $testHost = 'http://ganache:8545';
 ```
 
-5. Run test script
+1. Run test script
 ```
 vendor/bin/phpunit
-```
-
-###### Install packages
-Enter container first
-```
-docker-compose exec php ash
-```
-
-1. gmp
-```
-apk add gmp-dev
-docker-php-ext-install gmp
-```
-
-2. bcmath
-```
-docker-php-ext-install bcmath
 ```
 
 ###### Remove extension
